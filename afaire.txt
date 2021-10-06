@@ -1,0 +1,19 @@
+Administration :
+    -> Ajout :
+            - Titre  (fait)
+            - Resumé (fait)
+            - Contenu  (fait)
+            - image présentation (a faire)
+    -> Suppression :
+            - Suppression (fait)
+    -> Modification : 
+            - Titre  (fait)
+            - Resumé (fait)
+            - Contenu  (fait)
+            - image présentation (a faire)
+    -> Connexion :
+            - Connexion (a faire)
+
+
+Accueil :
+    -> affichage des articles présents 
