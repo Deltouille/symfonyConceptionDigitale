@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdministrationController!{% endblock %}
+
+{% block body %}
+<h1 align="center">{{ article.titreArticle }}</h1>
+
+{{ article.resumeArticle }}
+{{ article.contenuArticle|purify }}
+
+{% endblock %}

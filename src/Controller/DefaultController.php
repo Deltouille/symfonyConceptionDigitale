@@ -20,4 +20,16 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', ['listeArticle' => $listeArticle]);
     }
+
+    /**
+     * @Route("/article/{id}", name="article")
+     */
+    public function readArticle(int $id): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository(Article::class);
+        $readArticle = $articleRepository->find($id);
+
+        return $this->render('default/readArticle.html.twig', ['article' => $readArticle]);
+    }
 }
