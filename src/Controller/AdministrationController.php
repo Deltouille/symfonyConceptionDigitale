@@ -45,11 +45,27 @@ class AdministrationController extends AbstractController
                 return $this->redirectToRoute('administration');
             }
         }
+
         return $this->render('administration/modificationArticle.html.twig', ['articleModification' => $articleModification, 'form' => $form->createView()]);
     }
 
-    public function deleteArticle(): Response
+    /**
+     * @Route("/suppression-artcicle/{id}", name="suppression-article")
+     */
+    public function deleteArticle(int $id): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository(Article::class);
+        $articleSuppression = $articleRepository->find($id);
+
+        if($articleSuppression === null){
+            return $this->redirectToRoute('redirection-erreur');
+        }
+
+        $em->remove($articleSuppression);
+        $em->flush();
+
+        return $this->redirectToRoute('administration');
 
     }
 
@@ -69,6 +85,7 @@ class AdministrationController extends AbstractController
                 return $this->redirectToRoute('administration');
             }
         }
+        
         return $this->render('administration/ajoutArticle.html.twig', ['article' => $article, 'form' => $form->createView()]);
     }
 
