@@ -19,7 +19,7 @@
                 <td style="text-align: center;">{{ article.id }}</td>
                 <td style="text-align: center;">{{ article.titreArticle }}</td>
                 <td style="text-align: center;">{{ article.resumeArticle }}</td>
-                <td style="text-align: center;"><button type="button" class="btn btn-primary" style="margin: 1rem;">Modifier</button><button type="button" class="btn btn-danger">Supprimer</button></td>
+                <td style="text-align: center;"><button type="button" class="btn btn-primary" style="margin: 1rem;"><a href="{{ path('modifier-article', {id: article.id }) }}">Modifier</a></button><button type="button" class="btn btn-danger">Supprimer</button></td>
             </tr>
             {% endfor %}
         </tbody>

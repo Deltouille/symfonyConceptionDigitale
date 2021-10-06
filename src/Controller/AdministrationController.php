@@ -23,9 +23,29 @@ class AdministrationController extends AbstractController
         return $this->render('administration/index.html.twig', ['listeArticle' => $listeArticle]);
     }
 
-    public function updateArticle(): Response
-    {
+    /**
+     * @Route("/modifier-article/{id}", name="modifier-article")
+     */
+    public function updateArticle(Request $request, int $id): Response
+    {   
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository(Article::class);
+        $articleModification = $articleRepository->find($id);
 
+        if($articleModification === null){
+            return $this->redirectToRoute('redirection-erreur');
+        }
+
+        $form = $this->createForm(ArticleType::class, $articleModification);
+        if($request->isMethod('POST')){
+            $form->handleRequest($request);
+            if($form->isSubmitted() && $form->isValid()){
+                $em->persist($articleModification);
+                $em->flush();
+                return $this->redirectToRoute('administration');
+            }
+        }
+        return $this->render('administration/modificationArticle.html.twig', ['articleModification' => $articleModification, 'form' => $form->createView()]);
     }
 
     public function deleteArticle(): Response
@@ -50,5 +70,13 @@ class AdministrationController extends AbstractController
             }
         }
         return $this->render('administration/ajoutArticle.html.twig', ['article' => $article, 'form' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/redirection-erreur", name="redirection-erreur")
+     */
+    public function redirectionError(): Response
+    {
+        return new Response('oui');
     }
 }
