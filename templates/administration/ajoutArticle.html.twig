@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block title%}
+    Ajout d'un Article
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div>
+    <div class="pull-right">
+        </div>
+        <h1>Ajout d'un article</h1>
+        <hr />
+        {{ include('administration/formulaireArticle.html.twig')}}
+        <p>
+        <a href="#" class="btn btn-outline-primary">
+            <i class="glyphicon glyphicon-chevron-left">Retour aux articles</i>
+        </a>
+    </div>
+</html>
+{% endblock %}
