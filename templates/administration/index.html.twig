@@ -4,6 +4,7 @@
 
 {% block body %}
 <h1 align="center">Liste des articles</h1>
+<button type="button" class="btn btn-dark" style="margin: 1rem;" align="center"><a class="a-link" href="{{ path('ajout-article') }}">Ajouter un article</a></button>
 <table id="table" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -15,7 +16,7 @@
         </thead>
         <tbody>
             {% for article in listeArticle %}
-            <tr>
+            <tr> 
                 <td style="text-align: center;">{{ article.id }}</td>
                 <td style="text-align: center;">{{ article.titreArticle }}</td>
                 <td style="text-align: center;">{{ article.resumeArticle }}</td>

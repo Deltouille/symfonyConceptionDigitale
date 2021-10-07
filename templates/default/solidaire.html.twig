@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block title%}
+    Je souhaite sauver des vies !
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div>
+    <div class="pull-right">
+        </div>
+        <h1>Je souhaite sauver des vies !</h1>
+        <hr />
+        {{ include('default/solidaireFormulaire.html.twig')}}
+        <p>
+        <a href="{{ path('accueil') }}" class="btn btn-outline-primary">
+            <i class="glyphicon glyphicon-chevron-left">Retour a l'accueil</i>
+        </a>
+    </div>
+</html>
+{% endblock %}

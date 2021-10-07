@@ -16,4 +16,4 @@ Administration :
 
 
 Accueil :
-    -> affichage des articles présents 
+    -> affichage des articles présents (fait)
