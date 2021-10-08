@@ -55,4 +55,12 @@ class DefaultController extends AbstractController
         
         return $this->render('default/solidaire.html.twig', ['utilisateur' => $utilisateur, 'form' => $form->createView()]);
     }
+
+    /**
+     * @Route("/avancés-de-la-campagne-de-vaccination", name="vaxx")
+     */
+    public function avanceeVacinnation(): Response
+    {
+        return $this->render('default/strategie.html.twig');
+    }
 }
