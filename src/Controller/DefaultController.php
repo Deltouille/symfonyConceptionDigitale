@@ -57,9 +57,17 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/avancés-de-la-campagne-de-vaccination", name="vaxx")
+     * @Route("/avancés-de-la-campagne-de-vaccination", name="avance-vaccination")
      */
     public function avanceeVacinnation(): Response
+    {
+        return $this->render('default/avance.html.twig');
+    }
+
+    /**
+     * @Route("/facts-vaccination", name="facts-vaccination")
+     */
+    public function factsVaccination(): Response
     {
         return $this->render('default/strategie.html.twig');
     }
