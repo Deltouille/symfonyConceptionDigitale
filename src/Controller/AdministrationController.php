@@ -24,7 +24,7 @@ class AdministrationController extends AbstractController
     }
 
     /**
-     * @Route("/modifier-article/{id}", name="modifier-article")
+     * @Route("/administration/modifier-article/{id}", name="modifier-article")
      */
     public function updateArticle(Request $request, int $id): Response
     {   
@@ -50,7 +50,7 @@ class AdministrationController extends AbstractController
     }
 
     /**
-     * @Route("/suppression-artcicle/{id}", name="suppression-article")
+     * @Route("/administration/suppression-artcicle/{id}", name="suppression-article")
      */
     public function deleteArticle(int $id): Response
     {
@@ -70,7 +70,7 @@ class AdministrationController extends AbstractController
     }
 
     /**
-     * @Route("/ajout-article", name="ajout-article")
+     * @Route("/administration/ajout-article", name="ajout-article")
      */
     public function createArticle(Request $request) 
     {
@@ -90,7 +90,7 @@ class AdministrationController extends AbstractController
     }
 
     /**
-     * @Route("/redirection-erreur", name="redirection-erreur")
+     * @Route("/administration/redirection-erreur", name="redirection-erreur")
      */
     public function redirectionError(): Response
     {

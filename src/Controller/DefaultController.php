@@ -71,4 +71,11 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/strategie.html.twig');
     }
+
+    /**
+     * @Route("/", name="redirection")
+     */
+    public function redirection(){
+        return $this->redirectToRoute("accueil");
+    }
 }
