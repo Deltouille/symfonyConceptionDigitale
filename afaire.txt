@@ -1,19 +1,26 @@
-Administration :
-    -> Ajout :
-            - Titre  (fait)
-            - Resumé (fait)
-            - Contenu  (fait)
-            - image présentation (a faire)
-    -> Suppression :
-            - Suppression (fait)
-    -> Modification : 
-            - Titre  (fait)
-            - Resumé (fait)
-            - Contenu  (fait)
-            - image présentation (a faire)
-    -> Connexion :
-            - Connexion (a faire)
-
-
+Fonctionnalitées a faire :
 Accueil :
-    -> affichage des articles présents (fait)
+ -> Créer une page accueil avec la liste des articles : Fait ✓
+ -> Créer une page permettant de lire un article : Fait ✓
+ -> Créer une page permettant d'expliquer l'avancée de la vaccination en France : Fait ✓
+ -> Créer une page permettant d'expliquer la vaccination : A réécrire
+ -> Créer une page "Je souhaite sauver des vies" permettant a un utilisateur de rentrer son nom, prenon, adresse, numéro de sécurité sociale, souhait : Fait ✓
+ -> Créer une page "Chercher un centre de vaccination proche" : A Faire
+
+Administration : 
+ -> Créer une page de connexion : Fait ✓
+ -> Créer la déconnexion : Fait ✓
+ -> Créer une page d'administration permettant de voir tout les articles existants : Fait ✓
+ -> Créer une page d'ajout pour article : Fait ✓
+ -> Créer la suppression d'un article : Fait ✓
+
+Vérifications a faire :
+ -> Un utilisateur n'ayant pas de rôle administrateur ne doit pas être en mesure d'acceder a une des routes d'administration : Fait ✓
+ -> Vérification que le numéro de sécurité sociale dans la page "Je souhaite sauver des vies" soit correct : Fait ✓
+ -> Vérification que l'email dans la page "Je souhaite sauver des vies" soit correct : Fait ✓
+ -> Vérification qu'il est impossible de supprimer ou modifier un article qui n'existe pas en base de données : Fait ✓
+    |-> Faire la redirection automatique : Fait ✓
+
+
+HTML a faire : a faire
+

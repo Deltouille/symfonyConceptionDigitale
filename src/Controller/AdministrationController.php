@@ -5,7 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\FileException;
+use Symfony\Component\HttpFoundation\UploadedFile;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Article;
 use App\Form\ArticleType;
 
@@ -72,13 +75,29 @@ class AdministrationController extends AbstractController
     /**
      * @Route("/administration/ajout-article", name="ajout-article")
      */
-    public function createArticle(Request $request) 
+    public function createArticle(Request $request, SluggerInterface $slugger) 
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         if($request->isMethod('POST')){
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
+                $imageCouverture = $form->get('image')->getData();
+                if($imageCouverture){
+                    $originalFilename = pathinfo($imageCouverture->getClientOriginalName(), PATHINFO_FILENAME);
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$imageCouverture->guessExtension();
+
+                    try{
+                        $imageCouverture->move(
+                            $this->getParameter('image_upload'),
+                            $newFilename,
+                        );
+                    }catch(FileException $e){
+                        return new Response($e->getMessage());
+                    }
+                    $article->setImage($newFilename);
+                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($article);
                 $em->flush();
@@ -94,6 +113,6 @@ class AdministrationController extends AbstractController
      */
     public function redirectionError(): Response
     {
-        return new Response('oui');
+        return $this->render('administration/errorPage.html.twig');   
     }
 }

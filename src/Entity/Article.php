@@ -35,9 +35,10 @@ class Article
     private $contenuArticle;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="article")
+     * @ORM\Column(type="string", length=255)
      */
-    private $images;
+    private $image;
+
 
     public function __construct()
     {
@@ -85,33 +86,17 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection|Image[]
-     */
-    public function getImages(): Collection
+    public function getImage(): ?string
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function addImage(Image $image): self
+    public function setImage(string $image): self
     {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setArticle($this);
-        }
+        $this->image = $image;
 
         return $this;
     }
 
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getArticle() === $this) {
-                $image->setArticle(null);
-            }
-        }
 
-        return $this;
-    }
 }

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block body %}
+<h1>Erreur</h1>
+<p>Impossible de modifier ou supprimer cet article, car il n'existe pas dans la base de données.</p>
+<p>Vous serez redirigez a la page d'administration dans 5 secondes</p>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    $(document).ready( function () {
+        window.setTimeout(function(){
+            location.href = "{{ path('accueil') }}";
+        }, 5000);
+    } );
+</script>
+{% endblock %}
