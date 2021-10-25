@@ -1,4 +1,4 @@
-    <div class="well">
+    <div class="justify-content-center" align="center">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         
         {# Les erreurs générales du formulaire #}
@@ -6,7 +6,7 @@
 
         {# Génération manuelle du formulaire #}
         {# Nom de l'article #}
-        <div class="form-group">
+        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60">
             {# Génération du label #}
             {{ form_label(form.titreArticle, "Nom d'article", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
@@ -17,7 +17,7 @@
             </div>
         </div>
         {# Image de couverture de l'article #}
-        <div class="form-group">
+        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.image, "Image de couverture de l'article", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
@@ -28,7 +28,7 @@
             </div>
         </div>
         {# Résumé de l'article #}
-        <div class="form-group">
+        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.resumeArticle, "Résumé de l'article", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
@@ -39,7 +39,7 @@
             </div>
         </div>
         {# Contenu de l'article #}
-        <div class="form-group">
+        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.contenuArticle, "Contenu de l'article", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
@@ -50,10 +50,10 @@
             </div>
         </div>
 
-        <p>
+        <p class="d-flex justify-content-center" style="margin-top: 2rem;">
 
         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-        {{ form_widget(form.ajouter, {'attr': {'class': 'btn btn-outline-primary'}}) }}
+        {{ form_widget(form.ajouter, {'attr': {'class': 'btn btn-primary text-center'}}) }}
         {# Fermeture de la balise <form> de formulaire HTML #}
         {{ form_end(form) }}
     </div>

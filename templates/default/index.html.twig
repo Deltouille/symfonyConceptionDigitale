@@ -3,11 +3,13 @@
 {% block title %}Hello AdministrationController!{% endblock %}
 
 {% block body %}
+<div class="container">
 <h1 align="center">Liste des articles</h1>
-    <div class="row">
-    {% for article in listeArticle %}
-    <div class="col-sm-6">
-        <div class="card mb-3" style="max-width: 540px;">
+<hr/>
+    <div class="row mt-5">
+    {% for article in listeArticle %}    
+    <div class="col-12">
+        <div class="card mb-3 mt-2 hover:bg-blue-500" id="{{ article.id }}">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" class="img-fluid rounded-start" alt="oui">
@@ -16,12 +18,26 @@
                 <div class="card-body">
                     <h5 class="card-title"> {{ article.titreArticle }}</h5>
                     <p class="card-text">{{ article.resumeArticle }}</p>
-                    <p class="card-text"><button type="button" class="btn btn-info"><a href="{{ path('article', {id: article.id }) }}" class="a-link">Accèder a l'article</a></button></p>
+                    <p class="card-text absolute bottom-px right-0 pr-3"><a href="{{ path('article', {id: article.id }) }}" class="a-link"><i class="fas fa-arrow-right fa-3x" style="color: blue;"></a></i></p>
                 </div>
             </div>
         </div>
         </div> 
-    </div>       
+    </div>   
     {% endfor %}
     </div>
+</div>
 {% endblock %}
+
+{% block JS %}
+    <script>
+        $(document).ready(
+            $(".card").mouseover(function(e){
+                console.log('oui');
+                console.log($(this).attr('id'));
+            });
+        );
+    </script>
+{% endblock %}
+
+{# <button type="button" class="btn btn-info"><a href="{{ path('article', {id: article.id }) }}" class="a-link">Accèder a l'article</a></button> #}

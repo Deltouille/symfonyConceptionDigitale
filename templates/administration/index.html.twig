@@ -3,26 +3,48 @@
 {% block title %}Hello AdministrationController!{% endblock %}
 
 {% block body %}
-<h1 align="center">Liste des articles</h1>
-<button type="button" class="btn btn-dark" style="margin: 1rem;" align="center"><a class="a-link" href="{{ path('ajout-article') }}">Ajouter un article</a></button>
-<table id="table" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">ID</th>
-                <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">TITRE</th>
-                <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">RESUMÉ</th>
-                <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">ACTION</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for article in listeArticle %}
-            <tr> 
-                <td style="text-align: center;">{{ article.id }}</td>
-                <td style="text-align: center;">{{ article.titreArticle }}</td>
-                <td style="text-align: center;">{{ article.resumeArticle }}</td>
-                <td style="text-align: center;"><button type="button" class="btn btn-primary" style="margin: 1rem;"><a class="a-link" href="{{ path('modifier-article', {id: article.id }) }}">Modifier</a></button><button type="button" class="btn btn-danger"><a class="a-link" href="{{ path('suppression-article', {id: article.id }) }}">Supprimer</a></button></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 align="center">Liste des articles</h1>
+            <hr/>
+            <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-gray-500 border-gray-800 hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300" style="margin: 1rem;">
+                <a class="a-link hover:text-white" href="{{ path('ajout-article') }}">
+                    <i class="fas fa-plus pr-2"></i>Ajouter un article
+                </a>
+            </button>
+            <table id="table" class="table " style="width:100%">
+                    <thead style="background-color: black; color: white;">
+                        <tr>
+                            <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">ID</th>
+                            <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">TITRE</th>
+                            <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">RESUMÉ</th>
+                            <th style="border-top:0px solid black; padding-left: 9px; text-align: center;">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in listeArticle %}
+                        <tr  class="hover:bg-gray-200"> 
+                            <td style="text-align: center;">{{ article.id }}</td>
+                            <td style="text-align: center;">{{ article.titreArticle }}</td>
+                            <td style="text-align: center;">{{ article.resumeArticle }}</td>
+                            <td style="text-align: center;">
+                                <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-yellow-500 border-yellow-800 hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300" style="margin: 1rem;">
+                                    <a class="a-link hover:text-white" href="{{ path('modifier-article', {id: article.id }) }}">
+                                        Modifier
+                                    </a>
+                                </button>
+                                <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-red-500 border-red-800 hover:bg-red-600 active:bg-red-700 focus:ring-red-300">
+                                    <a class="a-link hover:text-white" href="{{ path('suppression-article', {id: article.id }) }}">
+                                        Supprimer
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

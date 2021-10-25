@@ -78,4 +78,12 @@ class DefaultController extends AbstractController
     public function redirection(){
         return $this->redirectToRoute("accueil");
     }
+
+    /**
+     * @Route("/centre-de-vaccination-proche", name="oui")
+     */
+    public function voeuxVaccination(){
+        return $this->render('default/centre-vaccination.html.twig');
+    }
+
 }

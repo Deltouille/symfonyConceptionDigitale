@@ -22,5 +22,13 @@ Vérifications a faire :
     |-> Faire la redirection automatique : Fait ✓
 
 
-HTML a faire : a faire
+HTML a faire :
+ -> Page Accueil 
+ -> Page Stratégie
+ -> Page avancée
+ -> page administration : Fait
+ -> page ajout/modification : Fait
+ -> page de login : Fait
+ -> navbar
+
 

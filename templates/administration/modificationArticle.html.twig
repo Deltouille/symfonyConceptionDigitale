@@ -11,12 +11,12 @@
 <div>
     <div class="pull-right">
         </div>
-        <h1>Modification d'un article</h1>
+        <h1 align="center">Modification d'un article</h1>
         <hr />
         {{ include('administration/formulaireArticle.html.twig')}}
-        <p>
-        <a href="#" class="btn btn-outline-primary">
-            <i class="glyphicon glyphicon-chevron-left">Retour aux articles</i>
+        <p class="d-flex justify-content-center">
+        <a href="{{ path('administration') }}" class="btn btn-danger text-center">
+           Retour aux articles
         </a>
     </div>
 </html>
