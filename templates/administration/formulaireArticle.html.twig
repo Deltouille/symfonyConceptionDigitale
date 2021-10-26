@@ -50,10 +50,10 @@
             </div>
         </div>
 
-        <p class="d-flex justify-content-center" style="margin-top: 2rem;">
+        <p class="d-flex justify-content-center" style="margin-top: 1rem;">
 
         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-        {{ form_widget(form.ajouter, {'attr': {'class': 'btn btn-primary text-center'}}) }}
+        {{ form_widget(form.ajouter, {'attr': {'class': 'px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-green-500 border-green-800 hover:bg-green-600 active:bg-green-700 focus:ring-green-300'}}) }}
         {# Fermeture de la balise <form> de formulaire HTML #}
         {{ form_end(form) }}
     </div>

@@ -22,33 +22,30 @@
     </head>
     <body>
 <!-- navbar goes here -->
-<nav class="bg-gray-100">
+<nav class="bg-white shadow-lg">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex justify-between">
-
       <div class="flex space-x-4">
         <!-- logo -->
         <div>
-          <a href="{{ path('accueil') }}" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
-            <span class="font-bold">Accueil</span>
-          </a>
+          <a href="{{ path('accueil') }}" class="flex items-center py-5 px-2 text-gray-700 hover:bg-gray-200">Accueil</a>
         </div>
 
-        <!-- primary nav -->
-        <div class="hidden md:flex items-center">
-                    <a class="nav-link" href="{{ path('facts-vaccination') }}">Avancement de la vaccination</a>
-                    <a class="nav-link" href="{{ path('avance-vaccination') }}">Stratégie de la vaccination</a>
-                    <a class="nav-link" href="{{ path('infoUtilisateur') }}">Je souhaite sauver des vies !</a>
+        <!-- primary nav --> 
+        <div class="hidden md:flex">
+                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('facts-vaccination') }}">Avancement de la vaccination</a>
+                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('avance-vaccination') }}">Stratégie de la vaccination</a>
+                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('infoUtilisateur') }}">Je souhaite sauver des vies !</a>
         </div>
       </div>
 
       <!-- secondary nav -->
       <div class="hidden md:flex items-center space-x-1">
         {% if is_granted('ROLE_ADMIN') %}
-            <a class="nav-link" href="{{ path('administration') }}">Administration</a>
-            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            <a class="nav-link hover:bg-gray-200" href="{{ path('administration') }}">Administration</a>
+            <a class="nav-link hover:bg-gray-200" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
-            <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+            <a class="nav-link hover:bg-gray-200" href="{{ path('app_login') }}">Connexion</a>
         {% endif %}
       </div>
 
