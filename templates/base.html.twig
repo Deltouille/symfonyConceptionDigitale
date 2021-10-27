@@ -28,24 +28,24 @@
       <div class="flex space-x-4">
         <!-- logo -->
         <div>
-          <a href="{{ path('accueil') }}" class="flex items-center py-5 px-2 text-gray-700 hover:bg-gray-200">Accueil</a>
+          <a href="{{ path('accueil') }}" class="flex items-center py-3 px-2 text-gray-700 nav-link" style="color: black;"><img src="{{ asset('uploads/images/LogoRF.png') }}" alt="logorf" style="max-width: 150px;"></a>
         </div>
 
         <!-- primary nav --> 
         <div class="hidden md:flex">
-                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('facts-vaccination') }}">Avancement de la vaccination</a>
-                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('avance-vaccination') }}">Stratégie de la vaccination</a>
-                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('infoUtilisateur') }}">Je souhaite sauver des vies !</a>
+                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('facts-vaccination') }}" style="color: black;">Avancement de la vaccination</a>
+                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('avance-vaccination') }}" style="color: black;">Stratégie de la vaccination</a>
+                    <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('infoUtilisateur') }}" style="color: black;">Je souhaite sauver des vies !</a>
         </div>
       </div>
 
       <!-- secondary nav -->
-      <div class="hidden md:flex items-center space-x-1">
+      <div class="hidden md:flex space-x-1">
         {% if is_granted('ROLE_ADMIN') %}
-            <a class="nav-link hover:bg-gray-200" href="{{ path('administration') }}">Administration</a>
-            <a class="nav-link hover:bg-gray-200" href="{{ path('app_logout') }}">Déconnexion</a>
+            <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('administration') }}" style="color: black;">Administration</a>
+            <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('app_logout') }}" style="color: black;">Déconnexion</a>
         {% else %}
-            <a class="nav-link hover:bg-gray-200" href="{{ path('app_login') }}">Connexion</a>
+            <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('app_login') }}" style="color: black;">Connexion</a>
         {% endif %}
       </div>
 
@@ -63,8 +63,15 @@
 
   <!-- mobile menu -->
   <div class="mobile-menu hidden md:hidden">
-    <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Features</a>
-    <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</a>
+    <a href="{{ path('facts-vaccination') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Avancement de la vaccination</a>
+    <a href="{{ path('avance-vaccination') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Stratégie de la vaccination</a>
+    <a href="{{ path('infoUtilisateur') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Je souhaite sauver des vies !</a>
+    {% if is_granted('ROLE_ADMIN') %}
+      <a href="{{ path('administration') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Administration</a>
+      <a href="{{ path('app_logout') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Déconnexion</a>
+    {% else %}
+      <a href="{{ path('app_login') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Connexion</a>
+    {% endif %}
   </div>
 </nav>
 

@@ -29,7 +29,7 @@ HTML a faire :
  -> page administration : Fait
  -> page ajout/modification : Fait
  -> page de login : Fait
- -> navbar
+ -> navbar : En cours
  -> Page Sauver des vies : Fait
 
 
