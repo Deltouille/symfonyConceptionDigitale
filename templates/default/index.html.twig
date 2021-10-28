@@ -32,14 +32,12 @@
 $(document).ready(function() {
     console.log('page chargée');
     $(".col-12").mouseenter(function(){
-        //$(this).animate({ 'zoom': 1.1 }, 5);
         if($(window).width() > 750){
             $(this).css("transform","translate(20px,0)");
             $(this).css("transition-duration","0.6s");
         }
     });
     $(".col-12").mouseleave(function(){
-        //$(this).animate({ 'zoom': 1 }, 0.6);
         $(this).css("transform","translate(0px,0)");
         $(this).css("transition-duration","0.6s");
     });
