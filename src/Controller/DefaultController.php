@@ -86,4 +86,11 @@ class DefaultController extends AbstractController
         return $this->render('default/centre-vaccination.html.twig');
     }
 
+    /**
+     * @Route("/", name="home")
+     */
+    public function homepageRedirection(){
+        return $this->redirectToRoute("accueil");
+    }
+
 }
