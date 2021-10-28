@@ -12,6 +12,10 @@
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
+.card:hover {
+    transform: scale(1.1);
+  }
+
 @media (min-width: 992px) {
     .navbar-custom {
         padding-top: 2rem !important;

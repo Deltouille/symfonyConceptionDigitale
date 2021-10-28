@@ -23,13 +23,13 @@ Vérifications a faire :
 
 
 HTML a faire :
- -> Page Accueil 
- -> Page Stratégie
- -> Page avancée
+ -> Page Accueil : Fait
+ -> Page Stratégie :
+ -> Page avancée :
  -> page administration : Fait
  -> page ajout/modification : Fait
  -> page de login : Fait
- -> navbar : En cours
+ -> navbar : Fait en quasi totalité
  -> Page Sauver des vies : Fait
 
 

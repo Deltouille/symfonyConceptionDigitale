@@ -4,8 +4,11 @@
 
 {% block body %}
 <h1 align="center">{{ article.titreArticle }}</h1>
-
-{{ article.resumeArticle }}
-{{ article.contenuArticle|purify }}
-
+<div class="container">
+    <div class="col-12">
+        {{ article.resumeArticle }}
+        <hr>
+        {{ article.contenuArticle|purify }}
+    </div>
+</div>
 {% endblock %}
