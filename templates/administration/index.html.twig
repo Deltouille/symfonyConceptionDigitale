@@ -31,12 +31,12 @@
                             <td style="text-align: center;">
                                 <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-yellow-500 border-yellow-800 hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300" style="margin: 1rem;">
                                     <a class="a-link hover:text-white" href="{{ path('modifier-article', {id: article.id }) }}">
-                                        Modifier
+                                        <i class="fas fa-pencil-alt fa-lg"></i>{# Modifier #}
                                     </a>
                                 </button>
                                 <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-red-500 border-red-800 hover:bg-red-600 active:bg-red-700 focus:ring-red-300">
                                     <a class="a-link hover:text-white" href="{{ path('suppression-article', {id: article.id }) }}">
-                                        Supprimer
+                                        <i class="fas fa-trash fa-lg"></i>{# Supprimer #}
                                     </a>
                                 </button>
                             </td>
