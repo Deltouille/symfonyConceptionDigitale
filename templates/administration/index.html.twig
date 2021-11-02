@@ -8,11 +8,12 @@
         <div class="col-12">
             <h1 align="center">Liste des articles</h1>
             <hr/>
-            <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-gray-500 border-gray-800 hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300" style="margin: 1rem;">
-                <a class="a-link hover:text-white" href="{{ path('ajout-article') }}">
-                    <i class="fas fa-plus pr-2"></i>Ajouter un article
-                </a>
-            </button>
+                <input type="text" id="searchInput" name="name" placeholder="Chercher un article..." class="w-1/3 py-2 my-4 border-b-2 border-gray-600 outline-none float-left focus:border-blue-400 align-middle">
+                <button type="button" class="px-4 my-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-gray-500 border-gray-800 hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300 float-right" style="margin: 1rem;">
+                    <a class="a-link hover:text-white" href="{{ path('ajout-article') }}">
+                        <i class="fas fa-plus pr-2"></i>Ajouter un article
+                    </a>
+                </button>
             <table id="table" class="table" style="width:100%">
                     <thead style="background-color: black; color: white;">
                         <tr>
@@ -24,11 +25,11 @@
                     </thead>
                     <tbody>
                         {% for article in listeArticle %}
-                        <tr  class="hover:bg-gray-200"> 
-                            <td style="text-align: center;">{{ article.id }}</td>
-                            <td style="text-align: center;">{{ article.titreArticle }}</td>
-                            <td style="text-align: center;">{{ article.resumeArticle }}</td>
-                            <td style="text-align: center;">
+                        <tr class="hover:bg-gray-200"> 
+                            <td style="text-align: center;" class="align-middle">{{ article.id }}</td>
+                            <td style="text-align: center;" class="align-middle">{{ article.titreArticle }}</td>
+                            <td style="text-align: center;" class="align-middle">{{ article.resumeArticle }}</td>
+                            <td style="text-align: center;" class="align-middle">
                                 <button type="button" class="px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-yellow-500 border-yellow-800 hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300" style="margin: 1rem;">
                                     <a class="a-link hover:text-white" href="{{ path('modifier-article', {id: article.id }) }}">
                                         <i class="fas fa-pencil-alt fa-lg"></i>{# Modifier #}
@@ -47,4 +48,17 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block js %}
+<script>
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#table tbody tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>   
 {% endblock %}

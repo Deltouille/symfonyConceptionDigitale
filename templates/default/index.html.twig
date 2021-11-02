@@ -4,29 +4,31 @@
 
 {% block body %}
 <div class="container">
-<h1 align="center">Liste des articles</h1>
-<hr/>
-    <div class="row mt-5">
-    {% for article in listeArticle %}    
-    <div class="col-12">
-        <div class="card mb-3 mt-2 hover:bg-blue-100 shadow-lg" id="{{ article.id }}">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" class="img-fluid rounded-start" alt="oui">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-weight: bold; font-size: 30px;"> {{ article.titreArticle }}</h5>
-                        <p class="card-text">{{ article.resumeArticle }}</p>
-                        <a href="{{ path('article', {id: article.id }) }}" class="stretched-link"></a></p>
+    <h1 align="center">Liste des articles</h1>
+    <hr/>
+    <div class="flex flex-column">
+        <input type="text" id="searchInput" name="name" placeholder="Chercher un article..." class="py-2 my-4 border-b-2 border-gray-600 outline-none float-left focus:border-blue-400 align-middle">
+        <div class="row mt-5">
+        {% for article in listeArticle %}    
+        <div class="col-12">
+            <div class="card mb-3 mt-2 hover:bg-blue-100 shadow-lg" id="{{ article.id }}">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" class="img-fluid rounded-start" alt="oui">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold; font-size: 30px;"> {{ article.titreArticle }}</h5>
+                            <p class="card-text">{{ article.resumeArticle }}</p>
+                            <a href="{{ path('article', {id: article.id }) }}" class="stretched-link"></a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> 
-    </div>  
-    {% endfor %}
+            </div> 
+        </div>  
+        {% endfor %}
+        </div>
     </div>
-    
 </div>
 <script>
 $(document).ready(function() {
@@ -41,6 +43,12 @@ $(document).ready(function() {
         $(this).css("transform","translate(0px,0)");
         $(this).css("transition-duration","0.6s");
     });
+      $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".col-12").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });
 </script>
 {% endblock %}

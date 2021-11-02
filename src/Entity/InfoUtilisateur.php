@@ -35,11 +35,6 @@ class InfoUtilisateur
 
     /**
      * @ORM\Column(type="string", length=13)
-     * @Assert\Regex(
-     *      pattern="^([1-3])[\s\.\-]?([0-9]{2})[\s\.\-]?(0[0-9]|[2-35-9][0-9]|[14][0-2])[\s\.\-]?(0[1-9]|[1-8][0-9]|9[0-57-9]|2[ab])[\s\.\-]?(00[1-9]|0[1-9][0-9]|[1-8][0-9]{2}|9[0-8][0-9]|990)[\s\.\-]?([0-9]{3})[\s\.\-]?([0-8][0-9]|9[0-7])$/gi^",
-     *      match=false,
-     *      message="numéro de sécurité sociale non valide"
-     * )
      */
     private $numeroSecuriteSociale;
 

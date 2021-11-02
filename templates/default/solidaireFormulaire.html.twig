@@ -67,3 +67,19 @@
         {{ form_end(form) }}
     </div>
 
+<script>
+    $(document).ready(function(){
+        $('#info_utilisateur_ajouter').click(function(event){
+            let regex = /^([123478])([0-9]{2})(0[1-9]|1[0-2]|[2-3][0-9]|4[0-2]|[5-9][0-9])([0][1-9]|2[AB]|[1-9][0-9])([0-9]{3})(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})(0[1-9]|[1-8][0-9]|9[0-7])?$/;
+            let numeroSecuriteSociale = $('#info_utilisateur_numeroSecuriteSociale').val();
+            console.log('Numero de secu : ' + numeroSecuriteSociale);
+            if(!regex.test(numeroSecuriteSociale)){
+                $('.codeErreur').remove();
+                $('#info_utilisateur_numeroSecuriteSociale').parent().parent().append("<ul class=\"codeErreur\"><li>Le numéro de sécurité sociale : " + numeroSecuriteSociale+ " n'est pas valide</li></ul>");
+                $("ul li").css('color', 'red');
+                console.log('dans le if !');
+                event.preventDefault();
+            }
+        });
+    });
+</script>
