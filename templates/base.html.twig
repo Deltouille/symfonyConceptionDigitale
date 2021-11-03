@@ -30,7 +30,7 @@
         </div>
 
         <!-- primary nav --> 
-        <div class="hidden md:flex">
+        <div class="hidden lg:flex">
                     <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('accueil') }}" style="color: black;">Accueil</a>
                     <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('facts-vaccination') }}" style="color: black;">Avancement de la vaccination</a>
                     <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('avance-vaccination') }}" style="color: black;">Stratégie de la vaccination</a>                
@@ -39,7 +39,7 @@
       </div>
 
       <!-- secondary nav -->
-      <div class="hidden md:flex space-x-1">
+      <div class="hidden lg:flex space-x-1">
         {% if is_granted('ROLE_ADMIN') %}
             <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('administration') }}" style="color: black;">Administration</a>
             <a class="nav-link hover:bg-gray-200 md:flex items-center py-5 px-2" href="{{ path('app_logout') }}" style="color: black;">Déconnexion</a>
@@ -49,7 +49,7 @@
       </div>
 
       <!-- mobile button goes here -->
-      <div class="md:hidden flex items-center">
+      <div class="lg:hidden flex items-center">
         <button class="mobile-menu-button">
           <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -61,41 +61,41 @@
   </div>
 
   <!-- mobile menu -->
-  <div class="mobile-menu hidden md:hidden">
-    <a class="block py-2 px-4 text-sm hover:bg-gray-200" href="{{ path('accueil') }}" style="color: black; text-decoration: none;">Accueil</a>
-    <a href="{{ path('facts-vaccination') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Avancement de la vaccination</a>
-    <a href="{{ path('avance-vaccination') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Stratégie de la vaccination</a>
-    <a href="{{ path('infoUtilisateur') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Je souhaite sauver des vies !</a>
-    {% if is_granted('ROLE_ADMIN') %}
-      <a href="{{ path('administration') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Administration</a>
-      <a href="{{ path('app_logout') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Déconnexion</a>
-    {% else %}
-      <a href="{{ path('app_login') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Connexion</a>
-    {% endif %}
+  <div class="mobile-menu hidden lg:hidden">
+    <div class="flex flex-column">
+      <a class="block py-2 px-4 text-sm hover:bg-gray-200" href="{{ path('accueil') }}" style="color: black; text-decoration: none;">Accueil</a>
+      <a href="{{ path('facts-vaccination') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Avancement de la vaccination</a>
+      <a href="{{ path('avance-vaccination') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Stratégie de la vaccination</a>
+      <a href="{{ path('infoUtilisateur') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Je souhaite sauver des vies !</a>
+      {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('administration') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Administration</a>
+        <a href="{{ path('app_logout') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Déconnexion</a>
+      {% else %}
+        <a href="{{ path('app_login') }}" class="block py-2 px-4 text-sm hover:bg-gray-200" style="color: black; text-decoration: none;">Connexion</a>
+      {% endif %}
+    </div>
   </div>
 </nav>
 
 <!-- content goes here -->
 <div class="pt-10 text-center">
   <div class="">
-                {% block body %}
+    {% block body %}
                 
-                {% endblock %}
+    {% endblock %}
     </div>
-</div>
-            
-                {% block js %}
-                    <script>
-                        // grab everything we need
-                        const btn = document.querySelector("button.mobile-menu-button");
-                        const menu = document.querySelector(".mobile-menu");
-                        // add event listeners
-                        btn.addEventListener("click", () => {
-                            menu.classList.toggle("hidden");
-                        });
-                    </script>
-                {% endblock %}
-            
+</div>         
+{% block js %}
+    <script>
+      // grab everything we need
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
+      // add event listeners
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+{% endblock %}    
     </body>
 </html>
 

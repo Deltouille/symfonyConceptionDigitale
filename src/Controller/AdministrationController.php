@@ -29,7 +29,7 @@ class AdministrationController extends AbstractController
     /**
      * @Route("/administration/modifier-article/{id}", name="modifier-article")
      */
-    public function updateArticle(Request $request, int $id): Response
+    public function updateArticle(Request $request, SluggerInterface $slugger, int $id): Response
     {   
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository(Article::class);
@@ -43,6 +43,22 @@ class AdministrationController extends AbstractController
         if($request->isMethod('POST')){
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
+                $imageCouverture = $form->get('image')->getData();
+                if($imageCouverture){
+                    $originalFilename = pathinfo($imageCouverture->getClientOriginalName(), PATHINFO_FILENAME);
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$imageCouverture->guessExtension();
+
+                    try{
+                        $imageCouverture->move(
+                            $this->getParameter('image_upload'),
+                            $newFilename,
+                        );
+                    }catch(FileException $e){
+                        return new Response($e->getMessage());
+                    }
+                    $articleModification->setImage($newFilename);
+                }
                 $em->persist($articleModification);
                 $em->flush();
                 return $this->redirectToRoute('administration');
