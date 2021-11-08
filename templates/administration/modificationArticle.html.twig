@@ -1,23 +1,15 @@
 {% extends "base.html.twig" %}
-{% block title%}
-    Modification d'un Article
+
+{% block title %}
+    Modification d'un article
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
+
 
 {% block body %}
-<div>
-    <div class="pull-right">
-        </div>
-        <h1 align="center">Modification d'un article</h1>
-        <hr />
-        {{ include('administration/formulaireArticle.html.twig')}}
-        <p class="d-flex justify-content-center">
-        <a href="{{ path('administration') }}" class="btn btn-danger text-center">
-           Retour aux articles
-        </a>
-    </div>
-</html>
+<div class="flex flex-col justify-center items-center">
+    <h1 class="lg:text-4xl text-2xl mt-2 font-extrabold">Modification d'un article</h1>
+    <hr/>
+    {{ include('administration/formulaireArticle.html.twig')}}
+</div>
 {% endblock %}

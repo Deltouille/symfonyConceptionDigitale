@@ -1,22 +1,15 @@
 {% extends "base.html.twig" %}
-{% block title%}
-    Ajout d'un Article
+
+{% block title %}
+    Ajout d'un article
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
+
 
 {% block body %}
-    <div class="pull-right">
-        </div>
-        <h1 align="center">Ajout d'un article</h1>
-        <hr />
-        {{ include('administration/formulaireArticle.html.twig')}}
-        <p class="d-flex justify-content-center">
-        <a href="{{ path('administration') }}" class="btn btn-danger text-center">
-            Retour aux articles
-        </a>
-    </div>
-
+<div class="flex flex-col justify-center items-center">
+    <h1 class="lg:text-4xl text-2xl mt-2 font-extrabold">Ajout d'un article</h1>
+    <hr/>
+    {{ include('administration/formulaireArticle.html.twig')}}
+</div>
 {% endblock %}

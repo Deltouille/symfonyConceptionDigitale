@@ -1,60 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdministrationController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1 align="center">Liste des articles</h1>
-    <hr/>
-    <div class="flex flex-column">
-        <input type="text" id="searchInput" name="name" placeholder="Chercher un article..." class="py-2 my-4 border-b-2 border-gray-600 outline-none float-left focus:border-blue-400 align-middle">
-        <div class="row mt-5">
-        {% for article in listeArticle %}    
-        <div class="col-12 hover:scale-110">
-            <div class="card mb-3 mb-5 lg:mt-3 md:mt-4 hover:bg-blue-100 shadow-lg" id="{{ article.id }}">
-                <div class="row g-0">
-                    <div class="col-lg-4">
-                        <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" class="img-fluid rounded-start" alt="oui">
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-weight: bold; font-size: 30px;"> {{ article.titreArticle }}</h5>
-                            <p class="card-text">{{ article.resumeArticle }}</p>
-                            <a href="{{ path('article', {id: article.id }) }}" class="stretched-link"></a></p>
-                        </div>
+<div class="flex flex-col items-center justify-center">
+    <input type="text" id="searchInput" name="name" placeholder="Chercher un article..." class="lg:px-10 py-2 my-4 border-b-2 border-gray-600 outline-none float-left focus:border-blue-400 align-middle">
+</div>
+
+<div class="flex flex-col items-center justify-center" id="listeArticle">
+    {% for article in listeArticle %}  
+        <a href="{{ path('article', {id: article.id }) }}" class="rounded-lg shadow-lg mt-3 border-3 border-black lg:w-4/5 w-5/6 searchable">
+            <div>
+                <div class="lg:flex">
+                    <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" alt="oui" class="rounded-l-lg h-60 lg:w-2/5 w-full object-cover">
+                    <div class="p-8">
+                        <h2 class="text-xl font-extrabold">{{ article.titreArticle }}</h2>
+                        <p>{{ article.resumeArticle }}</p>
+                        <button class="bg-blue-400 rounded-lg px-4 mt-5 py-2">Acceder a l'article</button>
                     </div>
                 </div>
-            </div> 
-        </div>  
-        {% endfor %}
-        </div>
-    </div>
+            </div>
+        </a>
+    {% endfor %}
 </div>
 <script>
 $(document).ready(function() {
     console.log('page chargée');
     if($(window).width() > 1024){
-    $(".col-12").mouseenter(function(){
+    $(".searchable").mouseenter(function(){
+            $(this).toggleClass('bg-blue-300');
             $(this).css("transform","translate(20px,0)");
             $(this).css("transition-duration","0.6s");
         
     });
-    $(".col-12").mouseleave(function(){
+    $(".searchable").mouseleave(function(){
+        $(this).toggleClass('bg-blue-300');
         $(this).css("transform","translate(0px,0)");
         $(this).css("transition-duration","0.6s");
     });
     }
       $("#searchInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $(".col-12").filter(function() {
+        $(".searchable").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
   });
 });
 </script>
 {% endblock %}
-{% block JS %}
-
-{% endblock %}
-
-{# <button type="button" class="btn btn-info"><a href="{{ path('article', {id: article.id }) }}" class="a-link">Accèder a l'article</a></button> #}

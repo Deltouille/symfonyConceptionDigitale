@@ -6,63 +6,63 @@
 
         {# Génération manuelle du formulaire #}
         {# Nom de l'utilisateur #}
-        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
+        <div class="" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.nom, "Nom :", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
             {{ form_errors(form.nom) }}
-            <div class="col-sm-10">
+            <div class="">
                 {# Génération de l'input. #}
-                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.nom, {'attr': {'class': 'border py-2 px-4 rounded-lg shadow-lg w-4/5 lg:w-full', 'placeholder': 'Dupont...'}}) }}
             </div>
         </div>
         {# Prénom de l'utilisateur #}
-        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
+        <div class="" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.prenom, "Prénom :", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
             {{ form_errors(form.prenom) }}
             <div class="col-sm-10">
                 {# Génération de l'input. #}
-                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.prenom, {'attr': {'class': 'border py-2 px-4 rounded-lg shadow-lg w-4/5 lg:w-full', 'placeholder': 'Jean...'}}) }}
             </div>
         </div>
         {# Email de l'utilisateur #}
-        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
+        <div class="" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.email, "Email :", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
             {{ form_errors(form.email) }}
             <div class="col-sm-10">
                 {# Génération de l'input. #}
-                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.email, {'attr': {'class': 'border py-2 px-4 rounded-lg shadow-lg w-4/5 lg:w-full', 'placeholder': 'jean.dupont@gmail.com...'}}) }}
             </div>
         </div>
         {# Numéro de sécurité sociale de l'utilisateur #}
-        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
+        <div class="" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.numeroSecuriteSociale, "Numéro de sécurité sociale", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
             {{ form_errors(form.numeroSecuriteSociale) }}
             <div class="col-sm-10">
                 {# Génération de l'input. #}
-                {{ form_widget(form.numeroSecuriteSociale, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.numeroSecuriteSociale, {'attr': {'class': 'border py-2 px-4 rounded-lg shadow-lg w-4/5 lg:w-full', 'placeholder': 'Par exemple : 199047500064191...'}}) }}
             </div>
         </div>
         {# Choix de l'utilisateur pour se faire vacciner #}
-        <div class="form-group mx-16 sm:mx-16 md:mx-16 lg:mx-16 xl:mx-40 2xl:mx-60" style="margin-top: 2rem;">
+        <div class="" style="margin-top: 2rem;">
             {# Génération du label #}
             {{ form_label(form.veuxVaccin, "Souhaitez-vous vous faire vacciner contre la COVID-19 :", {'label_attr': {'class': 'cal-sm-2 control-label'}}) }}
             {# Affichage des erreurs pour ce champ précis #}
             {{ form_errors(form.veuxVaccin) }}
             <div class="col-sm-10">
                 {# Génération de l'input. #}
-                {{ form_widget(form.veuxVaccin, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.veuxVaccin, {'attr': {'class': 'border py-2 px-4 rounded-lg shadow-lg w-4/5 lg:w-full'}}) }}
             </div>
         </div>
         <p style="margin-top: 1rem;">
         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-        {{ form_widget(form.ajouter, {'attr': {'class': 'px-4 py-2 rounded-md text-sm font-medium border-b-2 focus:outline-none focus:ring transition text-white bg-green-500 border-green-800 hover:bg-green-600 active:bg-green-700 focus:ring-green-300'}}) }}
+        {{ form_widget(form.ajouter, {'attr': {'class': 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-7 border-b-4 border-green-700 hover:border-green-500 rounded'}}) }}
         {# Fermeture de la balise <form> de formulaire HTML #}
         {{ form_end(form) }}
     </div>

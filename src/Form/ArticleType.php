@@ -28,7 +28,7 @@ class ArticleType extends AbstractType
                             'image/png',
                             'image/jpeg',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid PNG/JPG/JPEG document',
+                        'mimeTypesMessage' => 'Format de fichier non valide, veuillez selectionner une image avec l\'extension .png/.jpg/.jpeg',
                     ])
                 ]
 

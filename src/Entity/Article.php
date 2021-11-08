@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,9 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *  mimeTypes = {"image/png", "image/jpeg"},
+     *  mimeTypesMessage = "Format de fichier non valide, veuillez selectionner une image avec l'extension .png/.jpg/.jpeg")
      */
     private $image;
 
