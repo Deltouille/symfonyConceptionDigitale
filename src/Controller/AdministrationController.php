@@ -103,7 +103,6 @@ class AdministrationController extends AbstractController
                     $originalFilename = pathinfo($imageCouverture->getClientOriginalName(), PATHINFO_FILENAME);
                     $safeFilename = $slugger->slug($originalFilename);
                     $newFilename = $safeFilename.'-'.uniqid().'.'.$imageCouverture->guessExtension();
-
                     try{
                         $imageCouverture->move(
                             $this->getParameter('image_upload'),
