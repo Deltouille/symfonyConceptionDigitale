@@ -12,11 +12,11 @@
         <a href="{{ path('article', {id: article.id }) }}" class="rounded-lg shadow-lg mt-3 border-3 border-black lg:w-4/5 w-5/6 searchable">
             <div>
                 <div class="lg:flex">
-                    <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" alt="oui" class="rounded-l-lg h-60 lg:w-2/5 w-full object-cover">
-                    <div class="p-8">
+                    <img src="{{ asset('uploads/image_couverture/'~ article.image) }}" alt="oui" class="lg:rounded-l-lg rounded-t-lg h-60 lg:w-2/5 w-full object-cover">
+                    <div class="p-8 text-center lg:text-left">
                         <h2 class="text-xl font-extrabold">{{ article.titreArticle }}</h2>
                         <p>{{ article.resumeArticle }}</p>
-                        <button class="bg-blue-400 rounded-lg px-4 mt-5 py-2">Acceder a l'article</button>
+                        <button class="bg-blue-400 rounded-lg px-4 mt-5 py-2 lg:float-left float-center">Acceder a l'article</button>
                     </div>
                 </div>
             </div>
