@@ -73,6 +73,9 @@ class AdministrationController extends AbstractController
      */
     public function deleteArticle(int $id): Response
     {
+        if($this->getUser()->getRoles() !== "ROLE_ADMIN"){
+            return $this->redirectToRoute('app_login');
+        }
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository(Article::class);
         $articleSuppression = $articleRepository->find($id);
