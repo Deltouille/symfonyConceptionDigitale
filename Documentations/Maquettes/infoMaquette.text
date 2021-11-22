@@ -1,0 +1,9 @@
+La maquette Administration correspond a la page du panel d'administration.
+La maquette AjoutModificationArticle correspond a la page d'ajout et de modification d'un article.
+La maquette pageAccueil correspond a la page du'accueil.
+La maquette ErreurModificationSuppression correspond a la page d'erreur affichée lorsqu'un utilisateur cherche a modifier ou supprimer un article qui n'existe pas ou plus en base de données
+La maquette ChoixVaccination correspond au formulaire de la page "Je souhaite sauver des vies".
+La maquette Article correspond a la page qui seras affiché lorsqu'un utilisateur clique sur un article depuis la page d'accueil, ou qu'il accède a la page "Argument pour la vaccination" ou "Avancée de la campagne de vaccination"
+
+
+Les textes en vert dans la barre de navigation correspond a l'action qui peux effectué par l'utilisateur si il est connecté 
