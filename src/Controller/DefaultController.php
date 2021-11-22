@@ -32,8 +32,18 @@ class DefaultController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository(Article::class);
         $readArticle = $articleRepository->find($id);
-
+        if($readArticle === null){
+            return $this->redirectToRoute('user-redirection-erreur');
+        }
         return $this->render('default/readArticle.html.twig', ['article' => $readArticle]);
+    }
+
+    /**
+     * @Route("/redirection-erreur", name="user-redirection-erreur")
+     */
+    public function redirectionError(): Response
+    {
+        return $this->render('default/errorPage.html.twig');   
     }
 
     /**
